@@ -1,0 +1,27 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+
+}
+
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+
+}
+
+dependencies {
+    implementation 'junit:junit:4.12'
+    compile project(':app-data')
+    // Works with annotations, require plugin
+    compileOnly 'org.projectlombok:lombok:1.18.14'
+    annotationProcessor 'org.projectlombok:lombok:1.18.14'
+    testCompileOnly 'org.projectlombok:lombok:1.18.14'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.14'
+    // Valid
+    implementation "javax.validation:validation-api"
+}

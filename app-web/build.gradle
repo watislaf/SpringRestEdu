@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    developmentOnly 'org.springframework.boot:spring-boot-devtools' // Automatic application restart when code changes
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation 'junit:junit:4.12'
+}
+
+repositories { // Works with databases
+    mavenCentral()
+}
+dependencies {
+    implementation project(':app-data')
+    implementation project(':app-api')
+}
+
+dependencies {
+    // Works with annotations, require plugin
+    compileOnly 'org.projectlombok:lombok:1.18.14'
+    annotationProcessor 'org.projectlombok:lombok:1.18.14'
+    testCompileOnly 'org.projectlombok:lombok:1.18.14'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.14'
+}
