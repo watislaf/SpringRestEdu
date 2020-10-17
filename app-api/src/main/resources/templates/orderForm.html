@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>tacos.Taco Cloud</title>
+    <title>data.Repository.Task Cloud</title>
         <link rel="stylesheet" th:href="@{/styles.css}"/>
     <div th:text="${user.getUsername()}"></div>
 
@@ -16,14 +16,14 @@
 
 <form method="POST" th:action="@{/orders}" th:object="${order}"
       id="orderForm">
-    <h1>tacos.Order your taco creations!</h1>
+    <h1>tacos.Order your task creations!</h1>
 
     <img th:src="@{/images/TacoCloud.png}"/>
 
     <h3>Your tacos in this order:</h3>
-    <a th:href="@{/design}" id="another">Design another taco</a><br/>
+    <a th:href="@{/design}" id="another">Design another task</a><br/>
     <ul>
-        <li th:each="taco : ${order.tacos}"><span th:text="${taco.name}">taco name</span></li>
+        <li th:each="task : ${order.tacos}"><span th:text="${task.name}">task name</span></li>
     </ul>
 
     <div th:if="${#fields.hasErrors()}">
@@ -32,7 +32,7 @@
         </span>
     </div>
 
-    <h3>Deliver my taco masterpieces to...</h3>
+    <h3>Deliver my task masterpieces to...</h3>
     <label for="deliveryName">Name: </label>
     <input type="text" th:field="*{deliveryName}"/>
     <span class="validationError"

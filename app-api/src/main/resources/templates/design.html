@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>tacos.Taco Cloud</title>
+    <title>data.Repository.Task Cloud</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
     <form method="POST" th:action="@{/logout}">
         <input type="submit" value="Logout"/>
@@ -10,7 +10,7 @@
     </form>
 </head>
 <body>
-<h1>designT your taco!</h1>
+<h1>designT your task!</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
 <form method="POST" th:object="${designT}">  <!-- Return designT class -->
     <div class="grid">
@@ -66,11 +66,11 @@
         <!--Thymeleaf offers convenient access to the Errors object via the fields property and with its th:errors attribute.  -->
     </div>
     <div>
-        <h3>Name your taco creation:</h3>
+        <h3>Name your task creation:</h3>
         <input type="text" th:field="*{name}"/> <!-- Field of designT class -->
         <br/>
         <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
-        <button>Submit your taco</button>
+        <button>Submit your task</button>
     </div>
 </form>
 </body>

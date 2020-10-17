@@ -1,4 +1,4 @@
-TaskWebApp/TacoCloudApplication.java
- TaskWebApp.TacoCloudApplication
-TaskWebApp/Task/TaskController.java
- TaskWebApp.Task.TaskController
+web/WebApplication.java
+ web.WebApplication
+web/Controllers/TaskController.java
+ web.Controllers.TaskController
