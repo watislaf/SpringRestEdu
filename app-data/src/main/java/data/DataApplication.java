@@ -14,8 +14,7 @@ public class DataApplication {
     TaskRepository repo;
 
     public void createRandom() {
-        repo.save(new Task("lol", "lel", new Date()));
-    }
+        repo.save(new Task("lol", "lel", new Date()));}
 
     public Optional<Task> getTask(Long id) {
         return repo.findById(id.intValue());
