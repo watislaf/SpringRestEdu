@@ -1,47 +1,46 @@
 import React, {Component} from "react";
 
 class Counter extends Component {
-    state = { // contane data
-        count: 0,
-        imageUrl: 'https://picsum.photos/200'
+    state = { // private data
+        id: this.props.id,
+        value: this.props.value,
     };
 
-    // constructor(props) {
-    //     super(props);
-    //     console.log(this)
-    //     this.Incr = this.Incr.bind(this);
-    // }
-
-    Incr = () => { // use THIS of parent
-        this.setState({count: this.state.count + 1});
-    }
-
-    formater() {  // foo
-        const {count} = this.state;
-        if (count === 0) {
-            return "Zero";
-        }
-        return count;
-    }
-
-    b_span_class() {
-        let b_span_class = "badge m-2 badge-";
-        b_span_class += this.state.count === 0 ? 'warning' : 'primary';
-        console.log(b_span_class)
-        return b_span_class
-    }
-
-    style = { // style set example
+    style = { // easy style apply
         fontSize: 25,
         fontWeight: "bold"
     };
 
+    incrementCounter = () => { // use THIS of parent
+        this.setState({value: this.state.value + 1});
+    }
+
+    formaToZero() {  // foo
+        const {value} = this.state;
+        if (value === 0) {
+            return "Zero";
+        }
+        return value;
+    }
+
+    yellowOrBlue() {
+        let b_span_class = "badge m-2 badge-";
+        b_span_class += this.state.value === 0 ? 'warning' : 'primary';
+        console.log(b_span_class)
+        return b_span_class
+    }
+
+
     render() {
         return (
             <React.Fragment>
-                <img src={this.state.imageUrl} alt=""/><br/>
-                <span style={this.style} className={this.b_span_class()}> {this.formater()} </span>
-                <button onClick={this.Incr} className="btn btn-secondary btn-sm"> Increment</button>
+                <p style={this.style} className={this.yellowOrBlue()}> {this.formaToZero()} </p>
+                <button onClick={this.incrementCounter} className="btn btn-secondary btn-sm"> Increment</button>
+                <button onClick={() => {
+                    this.props.onDel(this.state.id)
+                }} className="btn btn-danger btn-sm m-3"> Remove
+                </button>
+
             </React.Fragment>
         );
     }
