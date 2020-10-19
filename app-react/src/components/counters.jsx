@@ -2,38 +2,40 @@ import React, {Component} from "react";
 import Counter from "./counter";
 
 class Counters extends Component {
-    state = {
-        counters: [], // contains {id , value}
-        key: 0
-    };
+    // in props
+    // counters [{id:0 val:0}]
+    // deleteById(id)
+    // incrementCounter(id)
+    // createNewCounter(id)
+    // rest()
+
+    key = 0 // no need to state
 
     keyGenerate() {
-        return ++this.state.key;
-    }
-
-    deleteById = (x) => {
-        let {counters} = this.state;
-        this.setState({counters: counters.filter(counter => counter.id !== x)})
+        return ++this.key;
     }
 
     createCounters() {
-        return this.state.counters.map(obj => (
-            <div key={obj.id}><br/> <Counter id={obj.id} value={obj.value} onDel={this.deleteById}/></div>)
+        return this.props.counters.map(obj => (
+            <div key={obj.id}><br/>
+                <Counter counter={this.props.counters.find((obj2) => (obj2.id === obj.id))}
+                         deleteById={this.props.deleteById} incrementCounter={this.props.incrementCounter}/>
+            </div>)
         )
-    }
-
-    createNewCounter = () => {
-        let temp = this.state.counters;
-        temp.push({id: this.keyGenerate(), value: 0});
-        this.setState({counters: temp});
     }
 
     render() {
         return (
             <React.Fragment>
                 <img src='https://picsum.photos/200' alt=""/>
+                <button onClick={this.props.reset} className="btn-big ">Reset</button>
                 {this.createCounters()}
-                <button onClick={this.createNewCounter} className="btn btn-danger"> Add new
+                <button ref={(n) => this.createButton = n}
+                        onClick={() => {
+                            this.props.triggerNewCounter(this.keyGenerate(), this.createButton)
+                            document.querySelector('html').classList.toggle('scroll-lock');
+                        }
+                        } className="btn btn-danger"> Add new
                 </button>
             </React.Fragment>
         );

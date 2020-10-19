@@ -19,6 +19,8 @@ public class Task extends RepresentationModel<Task> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Integer number;
+
     private final String name;
     private final String string;
 
