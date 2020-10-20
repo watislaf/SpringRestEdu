@@ -11,5 +11,4 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"
     compile group: 'org.springframework', name: 'spring-web', version: '5.2.6.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas' // _links
-
 }

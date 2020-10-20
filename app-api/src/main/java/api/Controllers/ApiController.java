@@ -22,7 +22,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("")
 public class ApiController {
 
     RestTemplate rest = new RestTemplate(); // provides 41 methods for interacting with REST resource

@@ -1,4 +1,0 @@
-tacos/TacoCloudApplicationTests.java
- tacos.TacoCloudApplicationTests
-tacos/HomeControllerTest.java
- tacos.HomeControllerTest
