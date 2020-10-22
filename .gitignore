@@ -38,6 +38,4 @@ discovery-server/bin/
 enquiry/bin/
 api-gateway/bin/
 registration/bin/
-
-### Jar
-!app-api/build/libs
+!/app-api/build/libs/
