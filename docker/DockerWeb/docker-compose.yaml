@@ -1,0 +1,31 @@
+version: '3'
+
+
+services:
+  psql:
+    image: 'bitnami/postgresql:latest'
+    env_file:
+      - database.env # configure postgres. Password etc
+
+  webapp:
+    image: 'webapp'
+    ports:
+      - "3000"
+
+  apiapp:
+    image: 'apiapp'
+    links:
+      - psql # app see psql, psql is domain now
+    ports:
+      - "8095"
+
+    nginx:
+      image: nginx
+    volumes:
+       - ./templates:/etc/nginx/templates
+    ports:
+       - "8080:80"
+    environment:
+       - NGINX_HOST=gigglingpenguin.me
+       - NGINX_PORT=80
+
