@@ -10,11 +10,11 @@ class App extends Component {
     myDomain = 'api.mydomain.com'
 
     componentDidMount() {
-        axios.get('http://' + this.myDomain + ':8080/api/tasks').then(
-            (responce) => {
-                console.log(responce.data)
-            }
-        )
+//        axios.get('http://' + this.myDomain + ':8080/api/tasks').then(
+//            (responce) => {
+//                console.log(responce.data)
+ //           }
+//        )
 
         // get object and put it
     }
@@ -64,8 +64,6 @@ class App extends Component {
         });
         this.idPretend = id;
         this.TriggerButton = TriggerButton
-
-
     }
 
     closeContainerForm = () => {
