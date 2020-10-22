@@ -8,5 +8,6 @@ RUN npm install -g npm@latest
 RUN npm install -g react react-dom react-scripts
 RUN npm install bootstrap
 RUN npm install axios
+RUN npm install --save-dev webpack-cli
 EXPOSE 3000
 CMD npm start
