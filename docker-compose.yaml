@@ -7,8 +7,8 @@ services:
     env_file:
       - app-data/database.env # configure postgres. Password etc
     volumes:
-      - .:/docker-entrypoint-initdb.d/
-      - .:/docker-entrypoint-initdb.d
+      - /docker-entrypoint-initdb.d
+
 # psql -h psql -p 5432 -U test -d database
 
 #  webapp:
