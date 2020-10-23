@@ -14,8 +14,8 @@ services:
   webapp:
     container_name: webapp
     build:
-      context: .
-      dockerfile: app-web/Dockerfile
+      context: ./app-web/
+      dockerfile: Dockerfile
     volumes:
       - '.:/app-web'
       - '/app-web/node_modules'
@@ -24,17 +24,17 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-  apiapp:
-    container_name: apiapp
-    build:
-      context: .
-      dockerfile: app-api/Dockerfile
-    volumes:
-      - '.:/app-api'
-    links:
-      - psql # app see psql, psql is domain now
-    ports:
-      - "8095"
+#  apiapp:
+#    container_name: apiapp
+#    build:
+#      context: ./app-api
+#      dockerfile: Dockerfile
+#    volumes:
+#      - '.:/app-api/*'
+#    links:
+#      - psql # app see psql, psql is domain now
+#    ports:
+#      - "8095"
 
 #  nginx:
 #    image: nginx
