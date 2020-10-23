@@ -3,14 +3,13 @@ version: '3'
 
 services:
   psql:
-    image: 'postgres:latest'
-    environment:
-      POSTGRES_DB: database
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: test
+    image: 'bitnami/postgresql:latest'
+    env_file:
+      - app-data/database.env # configure postgres. Password etc
     volumes:
-      - ./init.sql:/app-data/docker-entrypoint-initdb.d/schema.sql
-      - ./init.sql:/app-data/docker-entrypoint-initdb.d/data.sql
+      - .:/docker-entrypoint-initdb.d/
+      - .:/docker-entrypoint-initdb.d
+# psql -h psql -p 5432 -U test -d database
 
 #  webapp:
 #    image: 'webapp'
