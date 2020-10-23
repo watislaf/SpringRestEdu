@@ -2,24 +2,15 @@ plugins {
     id "io.spring.dependency-management" version "1.0.8.RELEASE"
 }
 
+// https://spring.io/guides/gs/multi-module/
 subprojects {
+
     group = 'watislaf'
     version = '0.0.1-SNAPSHOT'
-
-
-    apply plugin: 'io.spring.dependency-management'
-    apply plugin: 'java-library'
-    apply plugin: 'java'
 
     repositories {
         mavenCentral()
     }
 
-    test {
-        useJUnitPlatform()
-    }
-}
-
-allprojects {
 }
 

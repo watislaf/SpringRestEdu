@@ -3,12 +3,18 @@ plugins {
 
 }
 
+
+apply plugin: 'java-library'
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
 sourceCompatibility = '1.8'
 
+apply plugin: 'application'
 
 dependencies {
-    compile project(':app-data')
     implementation "org.springframework.boot:spring-boot-starter-web"
+    compile project(':app-data')
     compile group: 'org.springframework', name: 'spring-web', version: '5.2.6.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas' // _links
 }

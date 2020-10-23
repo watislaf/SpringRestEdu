@@ -1,5 +1,20 @@
+
 plugins {
     id 'org.springframework.boot' version '2.3.2.RELEASE'
+
+}
+
+
+apply plugin: 'java-library'
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
 }
 
 sourceCompatibility = '1.8'
