@@ -1,13 +1,24 @@
-FROM node:latest
+FROM node:13.12.0-alpine
 
-RUN git clone https://github.com/watislaf/SpringRestEdu.git
-WORKDIR SpringRestEdu/app-react/
+# set working directory
+WORKDIR /
 
-RUN npm install -g typescript
-RUN npm install -g npm@latest
-RUN npm install -g react react-dom react-scripts
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /node_modules/.bin:$PATH
+
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+
+# added libs here
 RUN npm install bootstrap
 RUN npm install axios
-RUN npm install --save-dev webpack-cli
-EXPOSE 3000
-CMD npm start
+# added libs here
+
+# add app
+COPY . ./
+
+# start app
+CMD ["npm", "start"]

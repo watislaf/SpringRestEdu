@@ -5,7 +5,7 @@ services:
   psql:
     image: 'bitnami/postgresql:latest'
     env_file:
-      - ../app-api/database.env # configure postgres. Password etc
+      - app-api/database.env # configure postgres. Password etc
 
   webapp:
     image: 'webapp'
