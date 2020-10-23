@@ -5,7 +5,7 @@ services:
   psql:
     image: 'bitnami/postgresql:latest'
     env_file:
-      - database.env # configure postgres. Password etc
+      - ../app-api/database.env # configure postgres. Password etc
 
   webapp:
     image: 'webapp'
@@ -19,13 +19,13 @@ services:
     ports:
       - "8095"
 
-    nginx:
-      image: nginx
+  nginx:
+    image: nginx
     volumes:
-       - ./templates:/etc/nginx/templates
+      - ./templates:/etc/nginx/templates
     ports:
-       - "8080:80"
+      - "8080:80"
     environment:
-       - NGINX_HOST=gigglingpenguin.me
-       - NGINX_PORT=80
+      - NGINX_HOST=gigglingpenguin.me
+      - NGINX_PORT=80
 
