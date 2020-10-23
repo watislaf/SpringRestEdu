@@ -29,6 +29,8 @@ services:
     build:
       context: .
       dockerfile: app-api/Dockerfile
+    volumes:
+      - '.:/app-api'
     links:
       - psql # app see psql, psql is domain now
     ports:
