@@ -12,7 +12,9 @@ services:
   # psql -h psql -p 5432 -U test -d database
 
   webapp:
+    container_name: webapp
     build:
+      context: .
       dockerfile: app-web/Dockerfile
     volumes:
       - '.:/app-web'
@@ -23,7 +25,9 @@ services:
       - CHOKIDAR_USEPOLLING=true
 
   apiapp:
+    container_name: apiapp
     build:
+      context: .
       dockerfile: app-api/Dockerfile
     links:
       - psql # app see psql, psql is domain now
