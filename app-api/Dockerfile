@@ -1,8 +1,7 @@
-FROM openjdk:8-jdk-a
+FROM openjdk:8-jdk-alpine
 EXPOSE 8095
-RUN git clone https://github.com/watislaf/SpringRestEdu.git
-ARG JAR_FILE=SpringRestEdu/app-api/build/libs/app-web-0.0.1-S$
-ADD ${JAR_FILE} app.jar
+
+COPY /build/libs/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
 
