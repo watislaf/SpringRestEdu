@@ -40,12 +40,12 @@ services:
     expose: # stay at compose local
       - 8095
 
-    #   https://www.domysee.com/blogposts/reverse-proxy-nginx-docker-compose
-    nginx:
-      image: nginx
-      volumes:
-        - ./nginx.conf:/nginx.conf
-      ports: # go to global
-        - 80:80
-        - 443:443
+  #   https://www.domysee.com/blogposts/reverse-proxy-nginx-docker-compose
+  nginx:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/nginx.conf
+    ports: # go to global
+      - 80:80
+      - 443:443
 
