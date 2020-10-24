@@ -9,8 +9,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker
-      run: docker-compose up 
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USR}}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PSWD}}
+
+    - name: Building
+      run: docker-compose build
+    - name: Builded psuh
+      run: docker-compose push
+    
