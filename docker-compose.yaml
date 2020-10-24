@@ -19,8 +19,8 @@ services:
     volumes:
       - '.:/app-web'
       - '/app-web/node_modules'
-    ports:
-      - 3000:3000 # double ip means from : to . One ip dsnt works
+#    ports:
+#      - 3000:3000 # double ip means from : to . One ip dsnt works
     expose:
       - 3000
     environment:
@@ -37,8 +37,8 @@ services:
       - '.:/app-api/*'
     links:
       - psql # app see psql, psql is domain now
-    ports:
-      - 8095:8095
+#    ports:
+#      - 8095:8095
     expose: # stay at compose local
       - 8095
 
