@@ -25,6 +25,15 @@ jobs:
           cd SpringRestEdu/
           docker-compose down
           docker-compose up --build -d
+    - name: Sleep for 80 seconds till server loading
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '80s'
+    - name: Check http status code of production site
+      uses: lakuapik/gh-actions-http-status@v1
+      with:
+        sites: '["http://tmpw.gigglingpenguin.me", "http://tmpapi.gigglingpenguin.me"]'
+        expected: '[200,200]'
 
           
     
