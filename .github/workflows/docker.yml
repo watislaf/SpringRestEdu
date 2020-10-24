@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Docker login
-      uses: actions/docker/login@master
+      run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USR}}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PSWD}}
