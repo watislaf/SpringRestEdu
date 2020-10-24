@@ -32,7 +32,7 @@ jobs:
     - name: Check http status code of production site
       uses: lakuapik/gh-actions-http-status@v1
       with:
-        sites: '["http://tempw.gigglingpenguin.me", "http://tempapi.gigglingpenguin.me"]'
+        sites: '["http://tmpw.gigglingpenguin.me", "http://tmpapi.gigglingpenguin.me"]'
         expected: '[200]'
 
           
