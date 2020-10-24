@@ -13,12 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Docker login
+      uses: actions/docker/login@master
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USR}}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PSWD}}
 
     - name: Building
       run: docker-compose build
+      
     - name: Builded psuh
       run: docker-compose push
     
