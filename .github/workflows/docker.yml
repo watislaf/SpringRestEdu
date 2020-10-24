@@ -33,7 +33,7 @@ jobs:
       uses: lakuapik/gh-actions-http-status@v1
       with:
         sites: '["http://tmpw.gigglingpenguin.me", "http://tmpapi.gigglingpenguin.me"]'
-        expected: '[200]'
+        expected: '[200,200]'
 
           
     
